@@ -1,0 +1,33 @@
+{
+  "name": "parcel-plugin-userscript",
+  "version": "1.0.0",
+  "description": "A parcel plugin for creating your amazing userscripts ✨",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "repository": "https://github.com/Petrivah/parcel-plugin-userscript.git",
+  "author": "Petrivah <petrivah@yandex.ru>",
+  "license": "MIT",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.{js,ts}\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.9",
+    "jest": "^26.3.0",
+    "prettier": "^2.0.5",
+    "ts-jest": "^26.2.0",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.9.7"
+  }
+}
